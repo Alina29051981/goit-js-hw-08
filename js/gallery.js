@@ -84,7 +84,6 @@ const galleryMarkup = images
 
 galleryContainer.innerHTML = galleryMarkup;
 
-// 5 - Делегування + 6-8 - Показ модалки
 galleryContainer.addEventListener("click", (event) => {
   event.preventDefault();
 
@@ -94,13 +93,13 @@ galleryContainer.addEventListener("click", (event) => {
   const alt = event.target.alt;
 
   const instance = basicLightbox.create(`
-      <img src="${largeImageURL}" alt="${alt}" style="max-width: 90vw; max-height: 90vh;" />
+      <img src="${largeImageURL}" alt="${alt}" style="max-width: 1112px; max-height: 640px; cursor: pointer;" />
     `);
 
   instance.show();
 
-  const handleKeydown = (e) => {
-    if (e.key === "Escape") {
+  const handleKeydown = (event) => {
+    if (event.key === "Escape") {
       instance.close();
       document.removeEventListener("keydown", handleKeydown);
     }
